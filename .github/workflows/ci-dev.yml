@@ -1,0 +1,13 @@
+name: CI - Main
+on:
+  push:
+    branches:
+      - 'main'
+jobs:
+  Build:
+    uses:   azure-prep/roboshop-github-actions/.github/workflows/ci-dev.yml@main
+    with:
+      appType: 'Python'
+      appName: 'payment'
+    secrets:
+      vault_token: ${{ secrets.TOKEN }}
