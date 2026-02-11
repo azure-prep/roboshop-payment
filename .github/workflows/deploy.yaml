@@ -1,0 +1,15 @@
+name: CI - Main
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'main'
+jobs:
+  Dev_Deploy:
+    uses: azure-prep/roboshop-github-actions/.github/workflows/aks-deploy.yaml@main
+    with:
+      resource_group_name: 'ukwest-dev'
+      appEnv: 'dev-dev'
+      appName: 'payment'
+    secrets:
+      vault_token: ${{ secrets.TOKEN }}
