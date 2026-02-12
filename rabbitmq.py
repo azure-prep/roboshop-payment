@@ -47,5 +47,5 @@ class Publisher:
 
     def close(self):
         if self._conn and self._conn.is_open:
-            self._logger.info('closing queue connection')
+            self._logger.info('closing queue connections')
             self._conn.close()
